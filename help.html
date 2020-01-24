@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html onContextMenu="window.alert('你居然发现了隐藏开关。');return false;">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Simpler Search Help</title>
+		<link href="./static/css/help.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<h1 id="title">更简搜索帮助</h1>
+		<p id="ExP" class="UnderLine">请认真阅读此帮助<br />本页面所有实心圈标注为使用方法，实心方块为注意事项。</p>
+		<div class="UnderLine">
+			<h2 id="ConvenientSearch">便捷搜索</h2>
+			<p>此具体功能如下:</p>
+			<ul class="Funcs">
+				<li>网址搜索</li>
+				<li>快捷翻译</li>
+				<li>搜索引擎偏好</li>
+			</ul>
+			<h3>网址搜索</h3>
+			<p>使用方式及注意事项:</p>
+			<ul>
+				<li class="WaysLi">将网址粘贴到搜索框内，随后敲击回车键即可弹出目标网址;</li>
+				<li class="WarnsLi">粘贴的网址必须是完整链接(带有http或https传输协议声明)的。</li>
+			</ul>
+			<br />
+			<h3>快捷翻译</h3>
+			<p>使用方式及注意事项:</p>
+			<ul>
+				<li class="WaysLi">在输入框内输入:"bdfy:内容"后回车即可弹出百度翻译的结果;</li>
+				<li class="WarnsLi">必须输入"bdfy:"否则将无效。</li>
+			</ul>
+			<br />
+			<h3>搜索引擎偏好</h3>
+			<p>使用方法(三种):</p>
+			<ul>
+				<li class="WaysLi">在搜索框内输入"SW"可打开搜索引擎切换按钮，选择即可;</li>
+				<li class="WaysLi">在搜索框内输入"Schbd"可切换至百度搜索引擎;</li>
+				<li class="WaysLi">在搜索框内输入"Schbing"可切换至必应搜索引擎;</li>
+				<li class="WaysLi">在搜索框内输入"Schgoogle"可切换至谷歌搜索引擎;</li>
+			</ul>
+			<p>注意事项:</p>
+			<ul>
+				<li class="WarnsLi">当搜索框内内容不为"SW"时，搜索引擎切换按钮会自动隐藏起来;</li>
+				<li class="WarnsLi">当输入了"Schbd","Schbing"或"Schgoogle"之后，搜索框内容会自动清空，这表明切换成功，如果没有便说明现在已经是该搜索引擎或者是BUG;</li>
+				<li class="WarnsLi">每次选择后您的选择会被保存下来，下次打开页面会出现你最后选择的搜索引擎(可在设置里关闭此功能)</li>
+			</ul>
+		</div>
+		<div class="TopLine">
+			<h2 id="DarkOver">DarkOver夜间模式</h2>
+			<p>本功能在白天时期呈现<span class="CodeContent">rgba(0, 0, 0, 0.11)</span>的一层稍微暗淡一点但不会遮住背景的一层布，以防背景图片的光亮和前方的功能混合;在夜晚时，便会呈现出<span class="CodeContent">rgba(0, 0, 0, 0.48)</span>的一层布，以此为用户提供一个较好的视觉观感。</p>
+		</div>
+		<br />
+		<br />
+		<div>
+			<h2 id="BackgroundChoice">背景选择</h2>
+			<p>背景选择功能可在：
+				<span class="CodeContent">Settings&gt;设置背景图片</span>
+				里设置，但由于用户功能还在维护，所以背景图片只能保存一段时间，之后需要重新选择。
+			</p>
+		</div>
+		<br />
+		<br />
+		<div class="UnderLine">
+			<h2 id="CostomLinks">自定义链接</h2>
+			<p>自定义链接功能目前通过cookies储存链接的信息，因此会在一段时间以后自动消失。(我们目前定义cookies保存6个月)&#10;当自定义链接天加后，可右键链接从而弹出确认是否删除提示。</p>
+		</div>
+	</body>
+</html>

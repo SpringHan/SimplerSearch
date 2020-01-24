@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	padding: 0px 100px;
+}
+ul {
+	margin-left: 50px;
+}
+ol {
+	margin-left: 50px;
+}
+h1#title {
+	margin-top: 3px;
+	text-align: center;
+}
+p#ExP {
+	text-align: center;
+}
+.UnderLine {
+	border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+.TopLine {
+	border-top: 1px solid rgba(0, ,0 ,0 .25);
+}
+ul.Funcs li{
+	list-style-type: decimal;
+}
+li.WaysLi {
+	list-style-type: disc;
+}
+li.WarnsLi {
+	list-style-type: square;
+}
+span.CodeContent {
+	background-color: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .9);
+	font-style: italic;
+}

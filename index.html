@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>The Start</title>
+		<link href="./static/css/index.css" rel="stylesheet" type="text/css" />
+		<script src="./api/index.js" type="text/javascript"></script>
+		<script src="./api/search.js" type="text/javascript"></script>
+		<script src="./static/js/index.js" type="text/javascript"></script>
+		<script src="./api/moreLinks.js" type="text/javascript"></script>
+		<script>
+function OnLoads() {
+	var Menu1 = document.getElementById('Menu1');
+	var Menu2 = document.getElementById('Menu2');
+	Menu1.style.color = "white";
+	Menu2.style.color = "rgba(255, 255, 255, .6)";
+	/* The color of Menu */
+
+	var t = new Date();
+	if(t.getHours() >= 18 || t.getHours() < 6) {
+		var DarkId = document.getElementById('DarkOver');
+		DarkId.style.background = "rgba(0, 0, 0, .48)";
+	} else if(t.getHours() >= 6 && t.getHours() < 18) {
+		var DarkId = document.getElementById('DarkOver');
+		DarkId.style.background = "rgba(0, 0, 0, .11)";
+	}
+	/* DarkOver */
+
+	document.getElementById('AForm').addEventListener('submit', function(submitII){
+		submitII.preventDefault();
+	});
+	document.getElementById('AddLinks').addEventListener('submit', function (submitI) {
+		submitI.preventDefault();
+	})
+	/* Stop `from` submit by adding a `onClick` event */
+
+	SearchWayChooseFirst();
+	/* Set the Default Search Way */
+
+	AutoloadImg();
+	/* Autoload the Background Image */
+
+	GetMoreLinksName();
+	/* Autoload the Links' Name */
+
+}
+function AutoloadImg() {
+	var backgroundNum = CheckCookies('bgimg', document.cookie);
+	if(backgroundNum == null) {
+		return;
+	}
+	ChangeImg(backgroundNum);
+}
+		</script>
+	<body onload="OnLoads()" onContextMenu="return false;">
+		<div id="SearchBody">
+			<h2 class="title">Simpler Search</h2>
+			<form id="AForm" action="">
+				<input type="text" name="word" id="SearchInputer" placeholder="Jump to" autocomplete="off" oninput="CheckInputer()" onBlur="KeepFocus()" onFocus="ShowHitokoto()" />
+				<input type="submit" value="Search" style="display: none;" onClick="SearchIn()" />
+			</form>
+			<div id="SearchWay" style="display: none;">
+				<div id="BaiduSearch" class="SearchWaysDiv">
+					<img src="./src/baidu.png" alt="baidu" onClick="ChangeSearchWay('1')" />
+				</div>
+				<div id="BingSearch" class="SearchWaysDiv">
+					<img src="./src/bing.png" alt="bing" onClick="ChangeSearchWay('2')" />
+				</div>
+				<div id="GoogleSearch" class="SearchWaysDiv">
+					<img src="./src/google.png" alt="google" onClick="ChangeSearchWay('3')" />
+				</div>
+			</div>
+		</div>
+		<div id="DarkOver"></div>
+		<div id="OtherFunctions">
+			<h2 class="title" id="FunTitle">Functions Tools</h2>
+			<div id="UsualLinkDiv">
+				<div class="UsualLinks"><a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a></div>
+				<div class="UsualLinks"><a href="https://fanyi.baidu.com/" target="_blank">百度翻译</a></div>
+				<div class="UsualLinks"><a href="https://qzone.qq.com/" target="_blank">QQ空间</a></div>
+				<div class="UsualLinks"><a href="https://www.youku.com/" target="_blank">优酷</a></div>
+				<div class="UsualLinks"><a href="https://wallroom.io/" target="_blank">高清图片</a></div>
+				<div class="UsualLinks"><a href="https://v.qq.com/" target="_blank">腾讯视频</a></div>
+				<div class="UsualLinks"><a href="https://www.iqiyi.com/" target="_blank">爱奇艺</a></div>
+				<div class="UsualLinks"><a href="https://www.github.com/" target="_blank">GitHub</a></div>
+				<div class="UsualLinks"><a href="https://cloud.tencent.com/" target="_blank">腾讯云</a></div>
+				<div class="UsualLinks"><a href="https://www.huaweicloud.com/" target="_blank">华为云</a></div>
+				<div class="UsualLinks"><a href="https://www.aliyun.com/" target="_blank">阿里云</a></div>
+				<div class="UsualLinks"><a href="https://www.jd.com/" target="_blank">京东</a></div>
+				<div class="UsualLinks"><a href="https://www.taobao.com/" target="_blank">淘宝</a></div>
+				<div class="UsualLinks"><a href="https://www.tmall.com/" target="_blank">天猫</a></div>
+				<div class="UsualLinks"><a href="http://mv.688ing.com/" target="_blank">视频解析</a></div>
+				<div class="UsualLinks"><a href="https://www.iconfont.cn/" target="_blank">IconFont</a></div>
+			</div>
+			<div id="SettingsMenu">
+				<span id="SettingsSpan" onClick="OCSettings()">Settings</span>
+				<div id="SettingsDiv" class="SecondMenuDiv" style="display: none;">
+					<span class="ThirdMenuSpan" onClick="OpenBGI()">设置背景图片</span>
+					<span class="ThirdMenuSpan" onClick="OpenUpdateLog()">更新日志</span>
+					<span class="ThirdMenuSpan" onClick="OpenBasicSettings()">基础设置</span>
+				</div>
+			</div>
+			<div id="FunctionsMenu">
+				<span id="FunctionsSpan" onClick="OCFunctions()">Functions</span>
+				<div id="FunctionDiv" class="SecondMenuDiv" style="display: none;">
+					<span class="ThirdMenuSpan" onClick="OpenLogin()">登录</span>
+					<span class="ThirdMenuSpan" onClick="OpenHelpWebpage()">帮助</span>
+				</div>
+			</div>
+		</div>
+		<div id="MoreLinks" style="display: none;">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('1')" onContextMenu="RemoveMoreLinks('1')">
+				<span id="LinkI" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('2')" onContextMenu="RemoveMoreLinks('2')">
+				<span id="LinkII" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('3')" onContextMenu="RemoveMoreLinks('3')">
+				<span id="LinkIII" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('4')" onContextMenu="RemoveMoreLinks('4')">
+				<span id="LinkIV" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('5')" onContextMenu="RemoveMoreLinks('5')">
+				<span id="LinkV" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('6')" onContextMenu="RemoveMoreLinks('6')">
+				<span id="LinkVI" class="LinkUrl"></span>
+			</div>
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('7')" onContextMenu="RemoveMoreLinks('7')">
+				<span id="LinkVII" class="LinkUrl"></span>
+			</div>
+		</div>
+		<div id="MenuDiv">
+			<span id="Menu1" onClick="ChangeFunctionDiv('1')">I</span>
+			<span id="Menu2" onClick="ChangeFunctionDiv('2')">II</span>
+		</div>
+		<div id="ExplainDiv">
+			<span id="CopyrightSpan" class="ExplainSpan" onClick="OpenOW()">&copy;2020HLUnion</span>
+			<span id="ApartSpan" class="ExplainSpan">|</span>
+			<span id="AboutSpan" class="ExplainSpan" onClick="AboutTS()">About</span>
+		</div>
+		<div id="ChooseBGI" class="AWinBack" style="display: none;">
+			<div class="AWin">
+				<div class="AWinClose">
+					<h2>选择你所看好的图片</h2>
+					<span id="CloseBGImg" onClick="CloseBGI()" onMouseOver="HoverDiv(1)" onMouseOut="OutDiv(1)"></span>
+				</div>
+				<div id="Images">
+					<img class="FirstLine" src="./src/background1.jpg" alt="BGI1" onClick="ChooseImg('1')" />
+					<img class="FirstLine" src="./src/background2.jpg" alt="BGI2" onClick="ChooseImg('2')" />
+					<img class="FirstLine" src="./src/background3.jpg" alt="BGI3" onClick="ChooseImg('3')" />
+					<img class="FirstLine" src="./src/background4.jpg" alt="BGI4" onClick="ChooseImg('4')" />
+				</div>
+				<p>敬请期待其他精美壁纸</p>
+			</div>
+		</div>
+		<div id="HitokotoDiv">
+			<p id="hitokoto" title="此内容可复制" style="display: none;">Hitokoto</p>
+			<p id="HappyNewYear">新年快乐!</p>
+		</div>
+		<div id="AboutDiv" class="AWinBack" style="display: none;">
+			<div class="AWin">
+				<div class="AWinClose">
+					<h2>关于更简搜索</h2>
+					<span id="CloseAbout" onClick="CloseAbout()" onMouseOver="HoverDiv(2)" onMouseOut="OutDiv(2)"></span>
+				</div>
+				<div id="AboutContent">
+					<p id="FirstP">欢迎来到
+						<strong style="color: rgba(0, 255, 0, .93);font-size: 25px;">Simpler Search</strong>
+					</p>
+					<p>
+						<span style="color: rgba(0, 255, 0, .93);">Simpler Search</span>
+						(
+						<span style="color: rgba(0, 255, 0, .93);font-size: 25px;">更简搜索</span>
+						)是
+						<span class="LinksSpan" onClick="OpenOW()">春名联盟</span>
+						旗下的一种致力于
+						<span style="color: rgba(0, 255, 0, .90);">简洁好用</span>
+						的开始页。
+					</p>
+					<p>本网站的功能如下：</p>
+					<ul>
+						<li>
+							<a href="https://hitokoto.cn" target="_blank" class="LinksA">Hitokoto - 一言</a>
+						</li>
+						<li>
+							<a href="./help.html#ConvenientSearch" target="_blank" class="LinksA">便捷搜索
+						</li>
+						<li>
+							<a href="./help.html#DarkOver" target="_blank" class="LinksA">夜间显示</a>
+						</li>
+						<li>
+							<a href="./help.html#BackgroundChoice" target="_blank" class="LinksA">背景选择</a>
+						</li>
+						<li>
+							<a href="./help.html#BasicSettings" target="_blank" class="LinksA">基本设置</a>
+						</li>
+					</ul>
+					<p style="text-align: center;">更多功能我们将在之后继续加入</p>
+					<p style="text-align: center;font-size: 20px;">Tips: 本网页有个彩蛋</p>
+				</div>
+			</div>
+		</div>
+		<div id="BasicSettings" class="AWinBack" style="display: none;">
+			<div class="AWin">
+				<div class="AWinClose">
+					<h2>基础设置</h2>
+					<span id="CloseBSeting" onClick="CloseBasicSettings()" onMouseOver="HoverDiv(3)" onMouseOut="OutDiv(3)"></span>
+				</div>
+				<div id="BSettingsContent">
+					<div class="BSettingsDiv">
+						<span class="BSettingSpan">每次更换搜索引擎时保留选择</span>
+						<span class="BSettingButton">ON</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="UpdateLog" class="AWinBack" style="display: none;">
+			<div class="AWin">
+				<div class="AWinClose">
+					<h2>更新日志</h2>
+					<span id="CloseLog" onClick="CloseUpdateLog()" onMouseOver="HoverDiv(4)" onMouseOut="OutDiv(4)"></span>
+				</div>
+				<div id="UpdateLogContent">
+					<ul id="ULogUl">
+						<li>
+							<p>2020.1.24</p>
+							<p class="UpdateContent">1.新增了Google搜索选项</p>
+							<p class="UpdateContent">2.将默认搜索引擎改为用户最近一次的搜索引擎选择，使用cookies保存数据，支持保存6个月</p>
+							<p class="UpdateContent">3.修复若干BUG</p>
+						</li>
+						<li>
+							<p>2020.1.16</p>
+							<p class="UpdateContent">1.加入了自定义链接功能，使用cookies保存数据，支持保存6个月;</p>
+							<p class="UpdateContent">2.背景图片切换后会保存为cookies数据，支持保存6个月;</p>
+							<p class="UpdateContent">3.修复了打开网页乱码的问题.</p>
+						</li>
+						<li>
+							<p>2020.1.15</p>
+							<p class="UpdateContent">更简搜索正式上线</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="OpenOtherLinksDiv" style="display: none;">
+			<p>自定义链接添加</p>
+			<span id="CloseOther" onClick="CloseMoreLinks()"></span>
+			<form action="" id="AddLinks">
+				<input type="text" id="NameInputer" class="LinksInputer" placeholder="链接名称" autocomplete="off" />
+				<br />
+				<input type="text" id="LinksUrl" class="LinksInputer" placeholder="链接地址" autocomplete="off" />
+				<br />
+				<input type="submit" id="LinkSubmit" value="保存" onClick="SaveMoreLinks()" />
+			</form>
+		</div>
+		<!-- <div id="MoreLinksControl" style="display: none;">
+			<div class="ControlDiv" id="topLinksDiv">
+				<span class="ControlSpan" onClick="">修改链接</span>
+			</div>
+			<div class="ControlDiv">
+				<span class="ControlSpan" onClick="">删除链接</span>
+			</div>
+			<div class="ControlDiv" id="bottomLinksDiv">
+				<span class="ControlSpan" onClick="">关闭</span>
+			</div>
+		</div> -->
+		<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+	</body>
+</html>
