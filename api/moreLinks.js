@@ -6,6 +6,7 @@
 */
 
 var clicks = 0;
+// var timeOut = 0;
 
 function OpenMoreLinks(clickNum) {
 	if(!clickNum) {
@@ -48,11 +49,11 @@ function CloseMoreLinks() {
 	var DivObject = document.getElementById('OpenOtherLinksDiv');
 	var Inputer1Status = document.getElementById('NameInputer');
 	var Inputer2Status = document.getElementById('LinksUrl');;
-	if(Inputer1Status.value != "") {
-		Inputer1Status.value = "";
+	if(Inputer1Status.value != '') {
+		Inputer1Status.value = '';
 	}
-	if(Inputer2Status.value != "") {
-		Inputer2Status.value = "";
+	if(Inputer2Status.value != '') {
+		Inputer2Status.value = '';
 	}
 	DivObject.style.display = "none";
 }
@@ -113,7 +114,7 @@ function GetMoreLinksName() {
 
 function RemoveMoreLinksName() {
 	var linksNum = 0;
-	var checkSpan = "";
+	var checkSpan = '';
 	for(var checkLinksTime = 1; checkLinksTime < 7; checkLinksTime++) {
 		linksNum = checkLinksTime;
 		var checkLinksName = 'links' + linksNum + 'Name';
@@ -188,7 +189,7 @@ function WriteMoreLinks(linkName, linkSpan) {
 }
 
 function CheckLinksExist(checkedName) {
-	var spanName = "";
+	var spanName = '';
 	switch(checkedName) {
 		case '1':
 			spanName = "LinkI";
@@ -214,7 +215,7 @@ function CheckLinksExist(checkedName) {
 	}
 	var checkObject = document.getElementById(spanName);
 	var CResult = checkObject.innerHTML;
-	if(CResult == "") {
+	if(CResult == '') {
 		return false;
 	} else {
 		return true;
@@ -237,18 +238,7 @@ function RemoveMoreLinks(RClickNum) {
 		}
 	}
 }
-
-function OpenMoreLinksControl(clickNum) {
-	document.getElementById('MoreLinksControl').style.display = "block";
-	window.controlLinks = clickNum;
-	// This need the position to appear the div.
-}
-
-function CloseMoreLinksControl() {
-	document.getElementById('MoreLinksControl').style.display = "none";
-	window.controlLinks = null;
-}
-
+/*
 function ClickTimes() {
 	clicks = clicks + 1;
 	if(clicks == 100) {
@@ -257,3 +247,73 @@ function ClickTimes() {
 		window.alert("你还要点吗？你都已经点击50次了！");
 	}
 }
+*/
+
+/*
+function SetTouchStart(touchedNum) {
+	timeOut = setTimeout(LongPress(touchedNum), 550);
+	return false;
+}
+
+function LongPress(linksNum) {
+	var linksName = '';
+	var cookieNameResult = '';
+	var cookieUrlResult = '';
+	timeOut = 0;
+	switch(linksNum) {
+		case '1':
+			linksName = 'LinkI';
+			break;
+		case '2':
+			linksName = 'LinkII';
+			break;
+		case '3':
+			linksName = 'LinkIII';
+			break;
+		case '4':
+			linksName = 'LinkIV';
+			break;
+		case '5':
+			linksName = 'LinkV';
+			break;
+		case '6':
+			linksName = 'LinkVI';
+			break;
+		case '7':
+			linksName = 'LinkVII';
+			break;
+		default:
+			window.alert('错误：未知的链接名！');
+			return;
+	}
+	cookieNameResult = CheckCookies(linksName + 'Name', document.cookie);
+	cookieUrlResult = CheckCookies(linksName + 'Url', document.cookie);
+	if(cookieNameResult == null) {
+		if(cookieUrlResult == null) {
+			window.alert('错误：无法找到相应的来链接！');
+			return;
+		} else {
+			window.alert('错误：由cookies数据被删除导致无法查找到对应链接！');
+			return;
+		}
+	} else {
+		document.getElementById('NameInputer').value = cookieNameResult;
+		document.getElementById('LinksUrl').value = cookieUrlResult;
+		document.getElementById('OpenOtherLinksDiv').style.display = 'block';
+	}
+}
+
+function SetTouchEnd(clickNum) {
+	clearTimeout(timeOut);
+	if(timeOut != 0) {
+		OpenMoreLinks(clickNum);
+		timeOut = 0;
+	}
+	return false;
+}
+
+function SetTouchMove() {
+	clearTimeout(timeOut);
+	timeOut = 0;
+}
+*/

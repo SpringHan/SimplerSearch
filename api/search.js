@@ -1,12 +1,27 @@
 function SearchCheck(Searchs) {
 	var reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0~9-~]+)\.)(.*)/;
 	var regII = /bdfy:(.*)/;
+	var regIII = /bd:(.*)/;
+	var regIV = /bing:(.*)/;
+	var regV = /google:(.*)/;
 	if(reg.test(Searchs)) {
 		window.open(Searchs, '_blank');
 	} else if(regII.test(Searchs)) {
 		var SearchC = regII.exec(Searchs)[1];
 		var SearchContent = "https://fanyi.baidu.com/#en/zh/" + SearchC;
-		window.open(SearchContent,'_blank');
+		window.open(SearchContent, '_blank');
+	} else if(regIII.test(Searchs)) {
+		var SearchC = regIII.exec(Searchs)[1];
+		var SearchContent = "https://www.baidu.com/s?wd=" + SearchC;
+		window.open(SearchContent, '_blank');
+	} else if(regIV.test(Searchs)) {
+		var SearchC = regIV.exec(Searchs)[1];
+		var SearchContent = "https://cn.bing.com/search?q=" + SearchC;
+		window.open(SearchContent, '_blank');
+	} else if(regV.test(Searchs)) {
+		var SearchC = regV.exec(Searchs)[1];
+		var SearchContent = "https://google.com/search?hl=zh_CN&q=" + SearchC;
+		window.open(SearchContent, '_blank');
 	} else {
 		var SearchContent = FindSearchWay(Searchs);
 		if(SearchContent == null) {

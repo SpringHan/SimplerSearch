@@ -43,6 +43,3 @@ function ChangeImg(imgName) {
 			break;
 	}
 }
-
-function GetElementPosition(elementName) {
-}
