@@ -115,9 +115,9 @@ function GetMoreLinksName() {
 function RemoveMoreLinksName() {
 	var linksNum = 0;
 	var checkSpan = '';
-	for(var checkLinksTime = 1; checkLinksTime < 7; checkLinksTime++) {
+	for(var checkLinksTime = 1; checkLinksTime <= 7; checkLinksTime++) {
 		linksNum = checkLinksTime;
-		var checkLinksName = 'links' + linksNum + 'Name';
+		var checkLinksName = 'Links' + linksNum + 'Name';
 		var nameResult = CheckCookies(checkLinksName, document.cookie);
 		if(nameResult == null) {
 			switch(linksNum) {
