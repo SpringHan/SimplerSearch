@@ -101,6 +101,7 @@ function ChangeSearchWay(searchWayNum) {
 function CheckInputer() {
 	var InputerContent = document.getElementById('SearchInputer').value;
 	if(InputerContent == 'SW') {
+		document.getElementById('SearchWay').style.animation = 'fadeIntoBlock 1s';	
 		document.getElementById('SearchWay').style.display = 'block';	
 	} else if(InputerContent == 'Schbd') {
 		var Baidu = document.getElementById('BaiduSearch');
@@ -146,7 +147,10 @@ function CheckInputer() {
 		}
 	} else {
 		if(document.getElementById('SearchWay').style.display == 'block') {
-			document.getElementById('SearchWay').style.display = 'none';
+			document.getElementById('SearchWay').style.animation = 'openNewDiv 1s';
+			setTimeout(function () {
+				document.getElementById('SearchWay').style.display = 'none';
+			}, 1000);
 		}
 	}
 }

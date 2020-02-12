@@ -89,7 +89,8 @@ function CloseAbout() {
 }
 
 function OpenOW() {
-	window.open('http://www.hlunn.com','_blank');
+	window.alert('官网正在维护，无法进行访问。');
+	// window.open('http://www.hlunn.com','_blank');
 }
 
 function OpenBasicSettings() {
@@ -107,7 +108,7 @@ function OpenLogin() {
 	window.alert('我们正在申请SSL证书，为了保证用户的账户安全，本功能正在维护中。');
 }
 
-function CloseLogin() {/* The function will be added later. */}
+// function CloseLogin() { /* The function will be added later. */ }
 
 function HoverDiv(DivNum) {
 	document.getElementsByClassName('AWin')[DivNum].style.transform = "rotate3d(5, 5, 0, 13deg)";
@@ -136,14 +137,32 @@ function ShowHitokoto() {
 	var happyNewYear = document.getElementById('HappyNewYear');
 	if(hitokotoSpan.style.display == 'block') {
 		if(happyNewYear.style.display == 'block') {
-			window.reload(true);
+			location.reload(true);
 		}
 	} else if(hitokotoSpan.style.display == 'none') {
 		if(happyNewYear.style.display == 'none') {
-			window.reload(true);
+			location.reload(true);
 		} else {
 			happyNewYear.style.display = 'none';
 			hitokotoSpan.style.display = 'block';
 		}
+	}
+}
+
+function ComputerActions() {
+	document.getElementById('FunctionsSpan').onclick = OCFunctions;
+	document.getElementById('SettingsSpan').onclick = OCSettings;
+	document.getElementById('FunctionsSpan').innerHTML = 'Functions';
+	document.getElementById('SettingsSpan').innerHTML = 'Settings';
+	document.getElementById('FunctionDiv').childNodes[1].onclick = OpenLogin;
+	document.getElementById('FunctionDiv').childNodes[3].onclick = OpenHelpWebpage;
+	document.getElementById('SettingsDiv').childNodes[1].onclick = OpenBGI;
+	document.getElementById('SettingsDiv').childNodes[3].onclick = OpenUpdateLog;
+	document.getElementById('SettingsDiv').childNodes[5].onclick = OpenBasicSettings;
+	if(CheckCookies('helpDoc', document.cookie) == null) {
+		if(confirm("您似乎是第一次使用，要跳转到帮助文档吗？")) {
+			window.open('./help.html', '_blank');
+		}
+		document.cookie = "helpDoc=1;" + MakeCookiesTime() + ";path=/;samesite=strict";
 	}
 }

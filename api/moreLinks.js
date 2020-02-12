@@ -22,17 +22,16 @@ function OpenMoreLinks(clickNum) {
 			window.saveNum = clickNum; // Return the Number of the Div needed to save.
 		} else {
 			if(saveNum == clickNum) {
-				ClickTimes();
 			} else {
 				saveNum = clickNum;
 				open.style.animation = "openNewDiv 1s";
 				setTimeout(function () {
 					open.style.display = "none";
-				},1000);
+				}, 1000);
 				setTimeout(function () {
 					open.style.display = "block";
 					open.style.animation = "fadeIntoBlock 1s";
-				},1000);
+				}, 1000);
 			}
 		}
 	} else {
@@ -86,6 +85,9 @@ function SaveMoreLinks() {
 		case '7':
 			linkPosition = "Links7";
 			break;
+		case '8':
+			linkPosition = "Links8";
+			break;
 		default:
 			window.alert("错误：通过非正常方式保存链接！");
 			return;
@@ -102,7 +104,7 @@ function SaveMoreLinks() {
 function GetMoreLinksName() {
 	var Cookies = document.cookie;
 	var linksNum = 0;
-	for(var checkLinksTime = 1; checkLinksTime <= 7; checkLinksTime++) {
+	for(var checkLinksTime = 1; checkLinksTime <= 8; checkLinksTime++) {
 		linksNum = checkLinksTime;
 		var checkLinksName = 'Links' + linksNum + 'Name';
 		var nameResult = CheckCookies(checkLinksName, Cookies);
@@ -115,7 +117,7 @@ function GetMoreLinksName() {
 function RemoveMoreLinksName() {
 	var linksNum = 0;
 	var checkSpan = '';
-	for(var checkLinksTime = 1; checkLinksTime <= 7; checkLinksTime++) {
+	for(var checkLinksTime = 1; checkLinksTime <= 8; checkLinksTime++) {
 		linksNum = checkLinksTime;
 		var checkLinksName = 'Links' + linksNum + 'Name';
 		var nameResult = CheckCookies(checkLinksName, document.cookie);
@@ -141,6 +143,9 @@ function RemoveMoreLinksName() {
 					break;
 				case 7:
 					checkSpan = 'LinkVII';
+					break;
+				case 8:
+					linkPosition = "LinkVIII";
 					break;
 				default:
 					window.alert("错误：未知的链接名称！");
@@ -180,6 +185,9 @@ function WriteMoreLinks(linkName, linkSpan) {
 		case 7:
 			linksSpan = 'LinkVII';
 			break;
+		case 8:
+			linksSpan = 'LinkVIII';
+			break;
 		default:
 			window.alert('错误：自定义链接无法获取！');
 			return;
@@ -212,6 +220,9 @@ function CheckLinksExist(checkedName) {
 		case '7':
 			spanName = "LinkVII";
 			break;
+		case '8':
+			spanName = "LinkVIII";
+			break;
 	}
 	var checkObject = document.getElementById(spanName);
 	var CResult = checkObject.innerHTML;
@@ -238,7 +249,7 @@ function RemoveMoreLinks(RClickNum) {
 		}
 	}
 }
-/*
+
 function ClickTimes() {
 	clicks = clicks + 1;
 	if(clicks == 100) {
@@ -247,7 +258,6 @@ function ClickTimes() {
 		window.alert("你还要点吗？你都已经点击50次了！");
 	}
 }
-*/
 
 /*
 function SetTouchStart(touchedNum) {

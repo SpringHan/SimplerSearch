@@ -18,17 +18,17 @@
 	}
 }
 
-html,body {
-	width: 100%;
-	height: 100%;
-	max-width: 100%;
+html, body {
 	text-align: center;
-	background-image: url(../../src/background1.jpg);
+	background-image: url(../../../src/background1.jpg);
 	background-color: black;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
 	user-select: none;
 }
 
@@ -62,16 +62,16 @@ h2.title {
 
 input#SearchInputer {
 	left: 0;
-	font-size: 15px;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0.29);
 	outline: none;
 	border: none;
 	border-radius: 30px;
-	padding: 15px 15px;
 	box-shadow: rgba(0, 0, 0, .2) 0px 0px 15px;
+	font-size: 15px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.29);
 	transition: width 5s, background-color 0.25s linear;
 	-webkit-transition: width 5s, background-color 0.25s linear;
+	padding: 15px 15px;
 }
 
 input#SearchInputer::-webkit-input-placeholder {
@@ -97,27 +97,27 @@ input#SearchInputer:focus::-webkit-input-placeholder {
 }
 
 div#SearchWay {
-	position: absolute;
-	width: 100%;
 	text-align: center;
 	padding: 5px;
 	margin-top: 3px;
+	position: absolute;
+	width: 100%;
 }
 
 div.SearchWaysDiv {
-	position: relative;
-	display: inline-block;
 	margin-left: 5px;
 	margin-right: 5px;
-	width: 50px;
-	height: 50px;
 	line-height: 50px;
 	text-align: center;
+	background-color: rgba(255, 255, 255, .3);
+	transition: all .2s ease;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
 	border: none;
 	border-radius: 12px;
-	background-color: rgba(255, 255, 255, .3);
-	cursor: pointer;
-	transition: all .2s ease;
 }
 
 div.SearchWaysDiv:hover {
@@ -145,7 +145,6 @@ div#HitokotoDiv p {
 div#DarkOver {
 	z-index: 100;
 	position: fixed;
-	display: inline;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -168,24 +167,22 @@ h2#FunTitle {
 
 div#UsualLinkDiv {
 	position: relative;
-	text-align: center;
 	width: 100%;
 	margin-top: 50px;
 }
 
 div.UsualLinks {
-	float: left;
 	margin-left: 2%;
 	margin-right: 2%;
 	margin-top: 2%;
+	word-break: keep-all;
+	line-height: 30px;
+	transition: all .2s ease;
+	float: left;
 	width: 75px;
 	height: 30px;
 	border: none;
 	border-radius: 8px;
-	word-break: keep-all;
-	text-align: center;
-	line-height: 30px;
-	transition: all .2s ease;
 }
 
 div.UsualLinks:hover {
@@ -328,34 +325,32 @@ span#AboutSpan {
 }
 
 div.AWinBack {
-	border: none;
+	background-color: rgba(255, 255, 255, .2);
+	top: 0;
+	left: 0;
 	z-index: 300;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: rgba(255, 255, 255, .2);
-	text-align: center;
+	border: none;
 }
 
 div.AWin {
+	margin: 0 auto;
+	margin-top: -300px;
+	background-color: white;
+	top: 50%;
 	position: relative;
 	width: 600px;
 	height: 600px;
-	background-color: white;
 	border: none;
 	border-radius: 12px;
-	margin: 0 auto;
-	top: 50%;
-	margin-top: -300px;
 	box-shadow: rgba(0, 0, 0, .2) 0px 0px 15px;
 }
 
 div.AWinClose {
 	position: relative;
 	width: 100%;
-	text-align: center;
 }
 
 div.AWinClose h2 {
@@ -447,36 +442,36 @@ div#AboutContent li a {
 }
 
 div#MoreLinks {
+	margin-left: -440px;
 	position: absolute;
 	z-index: 200;
-	width: 750px;
 	top: 85%;
 	left: 50%;
-	margin-left: -345px;
-	text-align: center;
+	width: 880px;
 }
 
 div.MoreLinkDiv {
-	float: left;
-	position: relative;
 	margin-left: 3px;
 	margin-right: 3px;
-	border: none;
-	border-radius: 10px;
 	background-color: rgba(255, 255, 255, .3);
-	width: 100px;
-	height: 90px;
 	line-height: 90px;
 	word-break: keep-all;
-	cursor: pointer;
 	transition: all .2s ease;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	border: none;
+	border-radius: 10px;
+	width: 100px;
+	height: 90px;
 }
 
-div.MoreLinkDiv:hover {
+div.MoreLinkDiv:focus {
 	background-color: white;
 }
 
 span.LinkUrl {
+	position: absolute;
 	color: white;
 	transition: color .2s ease;
 }
@@ -620,7 +615,6 @@ div#UpdateLogContent::-webkit-scrollbar-thumb {
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
-
 
 ul#ULogUl li {
 	list-style-type: none;

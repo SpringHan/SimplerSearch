@@ -1,0 +1,553 @@
+@keyframes fadeIntoBlock {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes openNewDiv {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+html, body {
+	text-align: center;
+	background-image: url(../../../src/background1.jpg);
+	background-color: black;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	user-select: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit; 
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit; 
+}
+
+a:visited {
+	text-decoration: none;
+	color: inherit; 
+}
+
+div#SearchBody {
+	position: relative;
+	z-index: 200;
+	width: 100%;
+	height: 62%;
+	margin-top: 18%;
+}
+
+h2.title {
+	color: white;
+	font-size: 35px;
+}
+
+input#SearchInputer {
+	font-size: 28px;
+	line-height: 28px;
+	padding: 3% 3%;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.29);
+	transition: width 0.1s, background-color 0.25s linear;
+	outline: none;
+	width: 50%;
+	border: none;
+	border-radius: 30px;
+	box-shadow: rgba(0, 0, 0, .2) 0px 0px 15px;
+}
+
+input#SearchInputer::-webkit-input-placeholder {
+	color: white;
+}
+
+input#SearchInputer:focus {
+	background-color: white;
+	width: 90%;
+}
+
+div#SearchWay {
+	text-align: center;
+	margin-top: 5%;
+	position: absolute;
+	width: 100%;
+	height: 80%;
+}
+
+div.SearchWaysDiv {
+	margin-left: 1%;
+	margin-right: 1%;
+	text-align: center;
+	background-color: rgba(255, 255, 255, .3);
+	transition: all .1s ease;
+	position: relative;
+	display: inline-block;
+	width: 16%;
+	height: 16%;
+	border: none;
+	border-radius: 12px;
+}
+
+div.SearchWaysDiv img {
+	width: 85%;
+	height: 85%;
+}
+
+div#DarkOver {
+	z-index: 100;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* FunctionTools {{{1 */
+div#OtherFunctions {
+	text-align: center;
+	overflow: hidden;
+	position: absolute;
+	z-index: 200;
+	width: 100%;
+	height: 80%;
+}
+
+h2#FunTitle {
+	margin-top: 1%;
+}
+
+/* FunctionsMenu&SettingsMenu {{{2 */
+div#FunctionsMenu {
+	background-color: rgba(255, 255, 255, .3);
+	padding: 0;
+	position: absolute;
+	top: 10%;
+	left: 0;
+	width: auto;
+	border: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	transition: width 3s ease;
+}
+
+span#FunctionsSpan {
+	font-size: 27px;
+	margin-left: 1%;
+	color: white;
+	border: none;
+	transition: all 3s ease, background-color .8s ease;
+}
+
+div#FunctionDiv {
+	width: 100%;
+	transition: display 3s ease;
+}
+
+div#SettingsMenu {
+	background-color: rgba(255, 255, 255, .3);
+	padding: 0;
+	position: absolute;
+	top: 10%;
+	right: 0;
+	width: auto;
+	border: none;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	transition: width 3s ease;
+}
+
+span#SettingsSpan {
+	font-size: 27px;
+	margin-right: 1%;
+	color: white;
+	border: none;
+	transition: all 3s ease, background-color .8s ease;
+}
+
+div#SettingsDiv {
+	width: 100%;
+	transition: display 3s ease;
+}
+
+div.SecondMenuDiv {
+	height: 100%;
+}
+
+span.ThirdMenuSpan {
+	font-size: 24px;
+	color: white;
+	border-bottom: 1px solid white;
+}
+
+span.ThirdMenuSpan:focus {
+	background-color: cyan;
+}
+/* }}}2 */
+
+div#UsualLinkDiv {
+	margin-top: 17%;
+	overflow-y: auto;
+	position: absolute;
+	width: 100%;
+	height: 60%;
+}
+
+div#UsualLinkDiv::-webkit-scrollbar {
+	width: 3px;
+}
+
+div#UsualLinkDiv::-webkit-scrollbar-button {
+	display: none;
+}
+
+
+div#UsualLinkDiv::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+div#UsualLinkDiv::-webkit-scrollbar-thumb {
+	background-color: cyan;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+div.UsualLinks {
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: 3%;
+	padding: 1% 0;
+	word-break: keep-all;
+	background-color: rgba(255, 255, 255, .3);
+	float: left;
+	width: 25%;
+	height: 8%;
+	border: none;
+	border-radius: 8px;
+}
+
+div.UsualLinks a {
+	font-size: 21px;
+	color: white;
+	padding: 2% 0;
+	border: none;
+}
+/* }}}1 */
+
+/* AWins {{{ */
+div.AWinBack {
+	background-color: rgba(255, 255, 255, .2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 300;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+div.AWin {
+	background-color: white;
+	margin: 0 auto;
+	margin-top: -55%;
+	overflow-y: auto;
+	position: relative;
+	top: 50%;
+	width: 95%;
+	height: 60%;
+	border: none;
+	border-radius: 12px;
+	box-shadow: rgba(0, 0, 0, .2) 0px 0px 15px;
+}
+
+div.AWinClose {
+	z-index: 350;
+	position: relative;
+	width: 100%;
+	height: 15%;
+}
+
+div.AWinClose h2 {
+	font-size: 28px;
+	position: relative;
+}
+
+div.AWinClose span {
+	position: absolute;
+	top: 0;
+	right: 1%;
+	width: 35px;
+	height: 35px;
+	transition: all .5s ease;
+}
+
+div.AWinClose span::before {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+div.AWinClose span::after {
+	transform: rotate(-45deg);
+	position: absolute;
+}
+
+div.AWinClose span::before, div.AWinClose span::after {
+	background-color: rgba(0, 0, 0, .4);
+	transition: all .2s ease;
+	position: absolute;
+	top: 30%;
+	left: -15%;
+	content: '';
+	width: 100%;
+	height: 3px;
+}
+
+div.AWinClose span:focus::before, div.AWinClose span:focus::after {
+	background-color: cyan;
+}
+
+div#Images {
+	width: 100%;
+	height: 80%;
+}
+
+div#Images img {
+	width: 50%;
+	height: 50%;
+}
+
+div#UpdateLogContent {
+	position: absolute;
+	top: 6%;
+	width: 100%;
+	height: 95%;
+	text-align: left;
+}
+
+ul#ULogUl {
+	position: absolute;
+	left: 0;
+}
+
+ul#ULogUl li {
+	list-style-type: none;
+}
+
+ul#ULogUl li p {
+	font-size: 22px;
+}
+
+p.UpdateContent {
+	margin-left: 35px;;
+}
+
+div#MoreLinks {
+	position: absolute;
+	z-index: 200;
+	top: 70%;
+	left: 5%;
+	width: 90%;
+}
+
+div.MoreLinkDiv {
+	margin-left: 2px;
+	margin-right: 2px;
+	background-color: rgba(255, 255, 255, .3);
+	line-height: 65px;
+	word-break: keep-all;
+	transition: all .2s ease;
+	position: relative;
+	display: inline-block;
+	border: none;
+	border-radius: 10px;
+	width: 20%;
+	height: 65px;
+}
+
+div.MoreLinkDiv:hover {
+	background-color: white;
+}
+
+span.LinkUrl {
+	color: white;
+	transition: color .2s ease;
+	position: absolute;
+}
+
+div.MoreLinkDiv:focus span.LinkUrl {
+	color: cyan;
+}
+/* }}} */
+
+div#OpenOtherLinksDiv {
+	background-color: white;
+	position: absolute;
+	z-index: 300;
+	top: 30%;
+	left: 10%;
+	border: none;
+	border-radius: 13px;
+	width: 80%;
+	height: 40%;
+}
+
+div#OpenOtherLinksDiv p {
+	font-size: 26px;
+}
+
+span#CloseOther {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	width: 30px;
+	height: 30px;
+	transition: all .5s ease;
+}
+
+span#CloseOther::before {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+span#CloseOther::after {
+	transform: rotate(-45deg);
+	position: absolute;
+}
+
+span#CloseOther::before, span#CloseOther::after {
+	background-color: rgba(0, 0, 0, .4);
+	transition: all .2s ease;
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 2px;
+}
+
+span#CloseOther:focus::before, span#CloseOther:focus::after {
+	background-color: cyan;
+}
+
+input.LinksInputer {
+	background-color: rgba(255, 255, 255, .5);
+	transition: all .3s ease;
+	font-size: 23px;
+	padding-left: 10px;
+	outline: none;
+	width: 85%;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+input.LinksInputer:focus {
+	border: 1px solid cyan;
+}
+
+input.LinksInputer::-webkit-input-placeholder {
+	color: gray;
+	font-size: 23px;
+}
+
+input.LinksInputer:focus::-webkit-input-placeholder {
+	color: gray;
+}
+
+input#LinksUrl {
+	margin-top: 8px;
+}
+
+input#LinkSubmit {
+	color: white;
+	transition: all .3s ease;
+	margin-top: 10px;
+	background-color: rgba(0, 255, 255, .75);
+	font-size: 23px;
+	cursor: pointer;
+	width: 60%;
+	height: 50px;
+	border: none;
+	border-radius: 6px;
+}
+
+input#LinkSubmit:focus {
+	background-color: rgb(0, 255, 255);
+}
+
+/* Explain Div {{{ */
+div#ExplainDiv {
+	text-align: center;
+	z-index: 200;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+span.ExplainSpan {
+	color: rgba(255, 255, 255, .99);
+	font-size: 27px;
+}
+
+span#ApartSpan {
+	margin-left: 1%;
+}
+
+span#AboutSpan {
+	margin-left: 1%;
+	text-decoration: underline;
+}
+
+div#HitokotoDiv {
+	position: absolute;
+	z-index: 200;
+	width: 100%;
+	top: 53%;
+}
+
+div#HitokotoDiv p {
+	font-size: 28px;
+	color: rgba(255, 255, 255, .88);
+}
+/* }}} */
+
+div#AboutContent p {
+	font-size: 25px;
+}
+
+div#AboutContent li {
+	list-style-type: none;
+}
+
+div#AboutContent li a {
+	font-size: 25px;
+	color: cyan;
+	text-decoration: underline;
+}
+
+p#FirstP {
+	font-size: 27px;
+	margin: auto;
+	text-align: center;
+}

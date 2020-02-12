@@ -26,20 +26,20 @@ function ChangeImg(imgName) {
 	var Html = document.documentElement;
 	switch(imgName) {
 		case '1':
-			Html.style.cssText += "background-image: url('./src/background1.jpg')";
-			Body.style.cssText += "background-image: url('./src/background1.jpg')";
+			Html.style.cssText += "background-image: url(./src/background1.jpg)";
+			Body.style.cssText += "background-image: url(./src/background1.jpg)";
 			break;
 		case '2':
-			Html.style.cssText += "background-image: url('./src/background2.jpg')";
-			Body.style.cssText += "background-image: url('./src/background2.jpg')";
+			Html.style.cssText += "background-image: url(./src/background2.jpg)";
+			Body.style.cssText += "background-image: url(./src/background2.jpg)";
 			break;
 		case '3':
-			Html.style.cssText += "background-image: url('./src/background3.jpg')";
-			Body.style.cssText += "background-image: url('./src/background3.jpg')";
+			Html.style.cssText += "background-image: url(./src/background3.jpg)";
+			Body.style.cssText += "background-image: url(./src/background3.jpg)";
 			break;
 		case '4':
-			Html.style.cssText += "background-image: url('./src/background4.jpg')";
-			Body.style.cssText += "background-image: url('./src/background4.jpg')";
+			Html.style.cssText += "background-image: url(./src/background4.jpg)";
+			Body.style.cssText += "background-image: url(./src/background4.jpg)";
 			break;
 	}
 }
