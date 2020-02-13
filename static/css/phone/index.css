@@ -150,7 +150,6 @@ div#FunctionsMenu {
 
 span#FunctionsSpan {
 	font-size: 27px;
-	padding: 2%;
 	transition: all 3s ease, background-color .8s ease;
 	color: white;
 	border: none;
@@ -176,7 +175,6 @@ div#SettingsMenu {
 
 span#SettingsSpan {
 	font-size: 27px;
-	padding: 1%;
 	color: white;
 	transition: all 3s ease, background-color .8s ease;
 	border: none;
@@ -203,7 +201,7 @@ span.ThirdMenuSpan:focus {
 /* }}}2 */
 
 div#UsualLinkDiv {
-	margin-top: 17%;
+	margin-top: 10%;
 	overflow-y: auto;
 	position: absolute;
 	width: 100%;
@@ -370,7 +368,7 @@ p.UpdateContent {
 div#MoreLinks {
 	position: absolute;
 	z-index: 200;
-	top: 70%;
+	top: 68%;
 	left: 5%;
 	width: 90%;
 }
