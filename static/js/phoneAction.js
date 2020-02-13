@@ -79,7 +79,6 @@ function PhoneOCFunctions(clickSpan) {
 		var SettO = document.getElementById('FunctionDiv');
 		var FObject = window.getComputedStyle(SettO, null);
 		if(FObject.getPropertyValue('display') == 'none') {
-			SpanO.style.marginLeft = '0';
 			SpanO.style.width = '100%';
 			SpanO.style.backgroundColor = 'cyan';
 			SettO.style.animation = 'fadeIntoBlock 0.8s';
@@ -88,7 +87,6 @@ function PhoneOCFunctions(clickSpan) {
 			SettO.style.animation = 'openNewDiv 1.2s';
 			SettO.style.display = 'none';
 			SpanO.style.backgroundColor = 'transparent';
-			SpanO.style.marginLeft = '1%';
 			SpanO.style.width = 'auto';
 		} else
 			location.reload();
@@ -97,7 +95,6 @@ function PhoneOCFunctions(clickSpan) {
 		var SettO = document.getElementById('SettingsDiv');
 		var FObject = window.getComputedStyle(SettO, null);
 		if(FObject.getPropertyValue('display') == 'none') {
-			SpanO.style.marginRight = '0';
 			SpanO.style.width = '100%';
 			SpanO.style.backgroundColor = 'cyan';
 			SettO.style.animation = 'fadeIntoBlock 0.8s';
@@ -106,7 +103,6 @@ function PhoneOCFunctions(clickSpan) {
 			SettO.style.animation = 'openNewDiv 1.2s';
 			SettO.style.display = 'none';
 			SpanO.style.backgroundColor = 'transparent';
-			SpanO.style.marginRight = '1%';
 			SpanO.style.width = 'auto';
 		} else
 			location.reload();

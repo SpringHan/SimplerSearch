@@ -150,10 +150,10 @@ div#FunctionsMenu {
 
 span#FunctionsSpan {
 	font-size: 27px;
-	margin-left: 1%;
+	padding: 2%;
+	transition: all 3s ease, background-color .8s ease;
 	color: white;
 	border: none;
-	transition: all 3s ease, background-color .8s ease;
 }
 
 div#FunctionDiv {
@@ -176,10 +176,10 @@ div#SettingsMenu {
 
 span#SettingsSpan {
 	font-size: 27px;
-	margin-right: 1%;
+	padding: 1%;
 	color: white;
-	border: none;
 	transition: all 3s ease, background-color .8s ease;
+	border: none;
 }
 
 div#SettingsDiv {
@@ -237,12 +237,13 @@ div#UsualLinkDiv::-webkit-scrollbar-thumb {
 
 div.UsualLinks {
 	margin-top: 5%;
-	margin-left: 5%;
+	margin-left: 3%;
 	margin-right: 3%;
 	padding: 1% 0;
 	word-break: keep-all;
 	background-color: rgba(255, 255, 255, .3);
-	float: left;
+	display: inline-block;
+	position: relative;
 	width: 25%;
 	height: 8%;
 	border: none;
@@ -253,6 +254,8 @@ div.UsualLinks a {
 	font-size: 21px;
 	color: white;
 	padding: 2% 0;
+	left: 0;
+	top: 0;
 	border: none;
 }
 /* }}}1 */
