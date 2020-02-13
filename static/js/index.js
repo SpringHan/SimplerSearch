@@ -163,6 +163,6 @@ function ComputerActions() {
 		if(confirm("您似乎是第一次使用，要跳转到帮助文档吗？")) {
 			window.open('./help.html', '_blank');
 		}
-		document.cookie = "helpDoc=1;" + MakeCookiesTime() + ";path=/;samesite=strict";
+		document.cookie = "helpDoc=1;expires=" + MakeCookiesTime() + ";path=/;samesite=strict";
 	}
 }
