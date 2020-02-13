@@ -8,31 +8,38 @@
 var clicks = 0;
 // var timeOut = 0;
 
-function OpenMoreLinks(clickNum) {
+function OpenMoreLinks(clickNum, methodNum) {
 	if(!clickNum) {
 		window.alert("错误：通过非正常方式打开链接保存面板！");
 		return;
 	}
+	if(!methodNum) {
+		return;
+	}
 	var EResult = CheckLinksExist(clickNum);
-	if(EResult == false) {
+	if(EResult == false || methodNum == '1') {
 		var open = document.getElementById('OpenOtherLinksDiv');
+		if(methodNum == '1') {
+			document.getElementById('NameInputer').value = CheckCookies('Links' + clickNum + 'Name', document.cookie);
+			document.getElementById('LinksUrl').value = CheckCookies('Links' + clickNum + 'Url', document.cookie);
+		}
 		if(open.style.display == "none") {
 			open.style.display = "block";
 			open.style.animation = "fadeIntoBlock 1s";
 			window.saveNum = clickNum; // Return the Number of the Div needed to save.
 		} else {
-			if(saveNum == clickNum) {
-			} else {
+			if(!saveNum)
+				location.reload();
+			else if(saveNum != clickNum)
 				saveNum = clickNum;
-				open.style.animation = "openNewDiv 1s";
-				setTimeout(function () {
-					open.style.display = "none";
-				}, 1000);
-				setTimeout(function () {
-					open.style.display = "block";
-					open.style.animation = "fadeIntoBlock 1s";
-				}, 1000);
-			}
+			open.style.animation = "openNewDiv 1s";
+			setTimeout(function () {
+				open.style.display = "none";
+			}, 1000);
+			setTimeout(function () {
+				open.style.display = "block";
+				open.style.animation = "fadeIntoBlock 1s";
+			}, 1000);
 		}
 	} else {
 		var linksLocation = GetMoreLinksUrl(clickNum);
@@ -145,7 +152,7 @@ function RemoveMoreLinksName() {
 					checkSpan = 'LinkVII';
 					break;
 				case 8:
-					linkPosition = "LinkVIII";
+					checkSpan = "LinkVIII";
 					break;
 				default:
 					window.alert("错误：未知的链接名称！");
@@ -250,6 +257,14 @@ function RemoveMoreLinks(RClickNum) {
 	}
 }
 
+function ChangeMoreLinks(CClickNum) {
+	if(CheckCookies('Links' + CClickNum + 'Name', document.cookie) == null) {
+		OpenMoreLinks(CClickNum, '0');
+	} else {
+		OpenMoreLinks(CClickNum, '1');
+	}
+}
+
 function ClickTimes() {
 	clicks = clicks + 1;
 	if(clicks == 100) {
@@ -258,72 +273,3 @@ function ClickTimes() {
 		window.alert("你还要点吗？你都已经点击50次了！");
 	}
 }
-
-/*
-function SetTouchStart(touchedNum) {
-	timeOut = setTimeout(LongPress(touchedNum), 550);
-	return false;
-}
-
-function LongPress(linksNum) {
-	var linksName = '';
-	var cookieNameResult = '';
-	var cookieUrlResult = '';
-	timeOut = 0;
-	switch(linksNum) {
-		case '1':
-			linksName = 'LinkI';
-			break;
-		case '2':
-			linksName = 'LinkII';
-			break;
-		case '3':
-			linksName = 'LinkIII';
-			break;
-		case '4':
-			linksName = 'LinkIV';
-			break;
-		case '5':
-			linksName = 'LinkV';
-			break;
-		case '6':
-			linksName = 'LinkVI';
-			break;
-		case '7':
-			linksName = 'LinkVII';
-			break;
-		default:
-			window.alert('错误：未知的链接名！');
-			return;
-	}
-	cookieNameResult = CheckCookies(linksName + 'Name', document.cookie);
-	cookieUrlResult = CheckCookies(linksName + 'Url', document.cookie);
-	if(cookieNameResult == null) {
-		if(cookieUrlResult == null) {
-			window.alert('错误：无法找到相应的来链接！');
-			return;
-		} else {
-			window.alert('错误：由cookies数据被删除导致无法查找到对应链接！');
-			return;
-		}
-	} else {
-		document.getElementById('NameInputer').value = cookieNameResult;
-		document.getElementById('LinksUrl').value = cookieUrlResult;
-		document.getElementById('OpenOtherLinksDiv').style.display = 'block';
-	}
-}
-
-function SetTouchEnd(clickNum) {
-	clearTimeout(timeOut);
-	if(timeOut != 0) {
-		OpenMoreLinks(clickNum);
-		timeOut = 0;
-	}
-	return false;
-}
-
-function SetTouchMove() {
-	clearTimeout(timeOut);
-	timeOut = 0;
-}
-*/

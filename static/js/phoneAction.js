@@ -14,13 +14,13 @@ function PhoneActions() {
 	document.getElementById('SettingsDiv').childNodes[5].onclick = function() { PhoneOpenSettings('basicSettings'); };
 	if(CheckCookies('helpDoc', document.cookie) == null) {
 		if(confirm("您似乎是第一次使用，要跳转到帮助文档吗？")) {
-			window.open('./help.html', '_blank');
+			window.open('./help.html', '_self');
 		}
 		document.cookie = "helpDoc=1;expires=" + MakeCookiesTime() + ";path=/;samesite=strict";
 	}
 }
 
-/* ChangeFunctions() {{{*/
+/* ChangeFunctions() {{{ */
 function ChangeFunctions() {
 	var OpClO = document.getElementById('OtherFunctions');
 	var OtherO = document.getElementById('SearchBody');
@@ -118,7 +118,7 @@ function PhoneOpenFunction(funcName) {
 	if(funcName == 'login')
 		window.alert('我们正在申请SSL证书，为了保证用户的账户安全，本功能正在维护中。');
 	else if(funcName == 'help')
-		window.open('./help.html', '_blank');
+		window.open('./help.html', '_self');
 }
 
 function PhoneOpenSettings(settingName) {

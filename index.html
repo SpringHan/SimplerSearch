@@ -47,7 +47,11 @@ function OnLoads() {
 
 	GetMoreLinksName();
 	/* Autoload the Links' Name */
+
+	StopChildPro();
+	/* Stop the child nodes from propagation */
 }
+
 function AutoloadImg() {
 	var backgroundNum = CheckCookies('bgimg', document.cookie);
 	if(backgroundNum == null) {
@@ -55,6 +59,7 @@ function AutoloadImg() {
 	}
 	ChangeImg(backgroundNum);
 }
+
 function ChangeViewFile() {
 	if(/(iPhone|iPod|iOS|Android)/i.test(navigator.userAgent)) {
 		document.getElementById('viewFile').href = './static/css/phone/index.css';
@@ -65,6 +70,15 @@ function ChangeViewFile() {
 	}
 	if(document.readyState == 'complete')
 		document.getElementById('loadingDiv').style.display = 'none';
+}
+
+function StopChildPro() {
+	var Objects = document.getElementsByClassName('deleteImg');
+	for(var i = 0; i <= 7; i++) {
+		Objects[i].addEventListener('click', function(e) {
+			e.stopPropagation();
+		});
+	}
 }
 		</script>
 	</head>
@@ -134,28 +148,36 @@ function ChangeViewFile() {
 			</div>
 		</div>
 		<div id="MoreLinks" style="display: none;">
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('1')" onContextMenu="RemoveMoreLinks('1')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('1', '0')" onContextMenu="ChangeMoreLinks('1')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('1')" class="deleteImg" />
 				<span id="LinkI" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('2')" onContextMenu="RemoveMoreLinks('2')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('2', '0')" onContextMenu="ChangeMoreLinks('2')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('2')" class="deleteImg" />
 				<span id="LinkII" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('3')" onContextMenu="RemoveMoreLinks('3')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('3', '0')" onContextMenu="ChangeMoreLinks('3')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('3')" class="deleteImg" />
 				<span id="LinkIII" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('4')" onContextMenu="RemoveMoreLinks('4')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('4', '0')" onContextMenu="ChangeMoreLinks('4')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('4')" class="deleteImg" />
 				<span id="LinkIV" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('5')" onContextMenu="RemoveMoreLinks('5')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('5', '0')" onContextMenu="ChangeMoreLinks('5')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('5')" class="deleteImg" />
 				<span id="LinkV" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('6')" onContextMenu="RemoveMoreLinks('6')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('6', '0')" onContextMenu="ChangeMoreLinks('6')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('6')" class="deleteImg" />
 				<span id="LinkVI" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('7')" onContextMenu="RemoveMoreLinks('7')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('7', '0')" onContextMenu="ChangeMoreLinks('7')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('7')" class="deleteImg" />
 				<span id="LinkVII" class="LinkUrl"></span>
 			</div>
-			<div class="MoreLinkDiv" onClick="OpenMoreLinks('8')" onContextMenu="RemoveMoreLinks('8')">
+			<div class="MoreLinkDiv" onClick="OpenMoreLinks('8', '0')" onContextMenu="ChangeMoreLinks('8')">
+				<img src="./src/deleteLink.png" alt="delete" onClick="RemoveMoreLinks('8')" class="deleteImg" />
 				<span id="LinkVIII" class="LinkUrl"></span>
 			</div>
 		</div>
@@ -252,6 +274,13 @@ function ChangeViewFile() {
 				<div id="UpdateLogContent" style="overflow-y: scroll;">
 					<ul id="ULogUl">
 						<li>
+							<p>2020.2.13</p>
+							<p class="UpdateContent">1.修复了若干显示BUG;</p>
+							<p class="UpdateContent">2.修复了“新手帮助引导”的cookie无法保存BUG;</p>
+							<p class="UpdateContent">3.为手机界面增加了自定义链接的删除功能;</p>
+							<p class="UpdateContent">4.改变了电脑界面自定义链接的修改功能，详细请阅读使用帮助.</p>
+						</li>
+						<li>
 							<p>2020.2.12</p>
 							<p class="UpdateContent">1.自定义链接数增加到8个;</p>
 							<p class="UpdateContent">2.增加加载中页面，在所有DOM加载完成后，进入主页面;</p>
@@ -298,17 +327,6 @@ function ChangeViewFile() {
 				<input type="submit" id="LinkSubmit" value="保存" onClick="SaveMoreLinks()" />
 			</form>
 		</div>
-		<!-- <div id="MoreLinksControl" style="display: none;">
-			<div class="ControlDiv" id="topLinksDiv">
-				<span class="ControlSpan" onClick="">修改链接</span>
-			</div>
-			<div class="ControlDiv">
-				<span class="ControlSpan" onClick="">删除链接</span>
-			</div>
-			<div class="ControlDiv" id="bottomLinksDiv">
-				<span class="ControlSpan" onClick="">关闭</span>
-			</div>
-		</div> -->
 		<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
 	</body>
 </html>

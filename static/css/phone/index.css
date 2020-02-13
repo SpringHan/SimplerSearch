@@ -387,7 +387,7 @@ div.MoreLinkDiv {
 	height: 65px;
 }
 
-div.MoreLinkDiv:hover {
+div.MoreLinkDiv:focus {
 	background-color: white;
 }
 
@@ -395,10 +395,21 @@ span.LinkUrl {
 	color: white;
 	transition: color .2s ease;
 	position: absolute;
+	left: 0;
+	width: 100%;
 }
 
 div.MoreLinkDiv:focus span.LinkUrl {
 	color: cyan;
+}
+
+img.deleteImg {
+	position: absolute;
+	z-index: 250;
+	top: 0;
+	right: 0;
+	width: 35%;
+	height: 40%;
 }
 /* }}} */
 

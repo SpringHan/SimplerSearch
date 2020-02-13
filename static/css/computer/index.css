@@ -466,18 +466,29 @@ div.MoreLinkDiv {
 	height: 90px;
 }
 
-div.MoreLinkDiv:focus {
+div.MoreLinkDiv:hover {
 	background-color: white;
 }
 
 span.LinkUrl {
-	position: absolute;
 	color: white;
 	transition: color .2s ease;
+	position: absolute;
+	left: 0;
+	width: 100%;
 }
 
 div.MoreLinkDiv:hover span.LinkUrl {
 	color: cyan;
+}
+
+img.deleteImg {
+	position: absolute;
+	z-index: 250;
+	top: 0;
+	right: 0;
+	width: 30%;
+	height: 35%;
 }
 
 div#OpenOtherLinksDiv {
