@@ -158,7 +158,6 @@ function KeepFocus() {
 	var CheckInputer = document.getElementById('SearchInputer');
 	if(CheckInputer.value == '') {
 		document.getElementById('hitokoto').style.display = 'none';
-		document.getElementById('HappyNewYear').style.display = 'block';
 	} else {
 		CheckInputer.focus();
 	}

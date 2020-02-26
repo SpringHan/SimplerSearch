@@ -134,18 +134,10 @@ function CloseUpdateLog() {
 
 function ShowHitokoto() {
 	var hitokotoSpan = document.getElementById('hitokoto');
-	var happyNewYear = document.getElementById('HappyNewYear');
 	if(hitokotoSpan.style.display == 'block') {
-		if(happyNewYear.style.display == 'block') {
-			location.reload(true);
-		}
+		location.reload(true);
 	} else if(hitokotoSpan.style.display == 'none') {
-		if(happyNewYear.style.display == 'none') {
-			location.reload(true);
-		} else {
-			happyNewYear.style.display = 'none';
 			hitokotoSpan.style.display = 'block';
-		}
 	}
 }
 
