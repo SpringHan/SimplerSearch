@@ -13,7 +13,7 @@ function RemoveCookies(cookieName) {
 }
 
 function CheckCookies(checkName, wholeCookies) {
-	var arr,Reg = new RegExp("(^| )" + checkName + "=([^;]*)(;|$)");
+	var Reg = new RegExp("(^| )" + checkName + "=([^;]*)(;|$)");
 	if(wholeCookies.match(Reg)) {
 		return wholeCookies.match(Reg)[2];
 	} else {
